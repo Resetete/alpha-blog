@@ -7,13 +7,19 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def new
+    # this is needed to have an empty article variable when the new page is loaded the first time
+    @article = Article.new
+  end
+
   def create
     # create new instance variable from Article based on the params information; params need to have the top level key :article and from it we allow the attributes :title, :description to be stored
     @article = Article.new(params.require(:article).permit(:title, :description))
-    @article.save 
-    redirect_to articles_path(@article) # rails extracts the id from this instance variable
-  end
-
-  def new
+    if @article.save
+      flash[:notice] = 'Article successful saved'
+      redirect_to @article # rails extracts the id from this instance variable
+    else
+      render 'new' # render new template again
+    end
   end
 end
