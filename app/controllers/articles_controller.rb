@@ -41,3 +41,9 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 end
+
+private
+
+def set_article
+  @article = Article.find(params[:id])
+end
