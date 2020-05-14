@@ -1,5 +1,39 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+html {
+  background-color: #beef00;
+}
+
 .navbar {
-  background-color: #FDF6EA !important;
+  background-color: #beef00 !important;
+}
+
+.nav-link {
+  color: black !important;
+}
+
+#blog-logo {
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  font-weight: bold;
+  color:  #1400c6;
+}
+
+#jumbotron-image {
+  background-image: asset-url("jombotron-image.png") !important;
+  background-repeat: repeat;
+  background-color: #1400c6; /*red #ff0028; */
+  margin-bottom: 0;
+  border: none;
+  h1 {
+    color: #ff0028;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    font-weight: bold;
+  }
+}
+
+#image-ref {
+  background-color: #1400c6;
+  border: none;
 }
