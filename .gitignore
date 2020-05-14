@@ -34,3 +34,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# ignore files that will be automatically created when deploying
+package.json
+yarn.lock
