@@ -1,32 +1,52 @@
 @import 'bootstrap/dist/css/bootstrap';
+$background-color: #beef00;
+$font-color: black;
+$highlight-color-light: #ff0028;
+$highlight-color-dark: #1400c6;
 
 html {
-  background-color: #beef00;
+  background-color: $background-color;
 }
 
+.page-content {
+  min-height: calc(100vh - 110px);
+}
+
+
+
+/*****************/
+/***** NAVBAR ****/
+/*****************/
+
+
 .navbar {
-  background-color: #beef00 !important;
+  background-color: $background-color !important;
 }
 
 .nav-link {
-  color: black !important;
+  color: $font-color !important;
 }
 
 #blog-logo {
   text-transform: uppercase;
   letter-spacing: 0.5em;
   font-weight: bold;
-  color:  #1400c6;
+  color: $highlight-color-dark;
 }
+
+/******************+*/
+/***** HOMEPAGE ***+*/
+/******************+*/
+
 
 #jumbotron-image {
   background-image: asset-url("jombotron-image.png") !important;
   background-repeat: repeat;
-  background-color: #1400c6; /*red #ff0028; */
+  background-color: $highlight-color-dark;
   margin-bottom: 0;
   border: none;
   h1 {
-    color: #ff0028;
+    color: $highlight-color-light;
     text-transform: uppercase;
     letter-spacing: 0.5em;
     font-weight: bold;
@@ -36,4 +56,25 @@ html {
 #image-ref {
   background-color: #1400c6;
   border: none;
+}
+
+/*****************/
+/**** FOOTER  ****/
+/*****************/
+
+#chamaeleon-footer-brand {
+  -webkit-filter: grayscale(50%) brightness(220%);
+  filter: grayscale(50%) brightness(220%);
+}
+
+footer {
+  background-color: #beef00;
+  height: 50px;
+  a small {
+    color: $font-color;
+  }
+}
+
+#sticky-footer {
+  flex-shrink: none;
 }
