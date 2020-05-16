@@ -6,10 +6,17 @@ $highlight-color-dark: #1400c6;
 
 html {
   background-color: $background-color;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .page-content {
-  min-height: calc(100vh - 110px);
+  flex: 1 0 auto;
 }
 
 
@@ -69,7 +76,7 @@ html {
 
 footer {
   background-color: #beef00;
-  height: 50px;
+  flex-shrink: 0;
   a small {
     color: $font-color;
   }
