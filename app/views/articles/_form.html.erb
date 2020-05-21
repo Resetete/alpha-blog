@@ -1,19 +1,33 @@
-<%= render 'error_messages' %>
+<div class="container"
+  <%= render 'error_messages' %>
 
-<%= form_with(model: @article, local: true) do |f| %>
+  <div class="row">
+    <div class="col-12">
+      <%= form_with(model: @article, class: "shadow p-3 mb-5 mt-5 bg-white rounded", local: true) do |f| %>
 
-  <p>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %>
-  </p>
+      <div class="form-group row">
+        <%= f.label :title, class: "col-2 col-form-label form-label" %>
+        <div class="col-10">
+          <%= f.text_field :title, class: "form-control border-success shadow rounded" %>
+        </div>
+      </div>
 
-  <p>
-    <%= f.label :description %> <br>
-    <%= f.text_area :description %>
-  </p>
+      <div class="form-group row">
+        <%= f.label :description, class: "col-2 col-form-label form-label" %>
+        <div class="col-10">
+        <%= f.text_area :description, rows: 10, class: "form-control border-success shadow rounded"  %>
+        </div>
+      </div>
 
-  <p>
-    <%= f.submit %> <br>
-  </p>
+      <div class="form-group row justify-content-center">
+        <%= f.submit class: "btn btn-lg btn-custom-show" %>
+      </div>
 
-<% end %>
+      <% end %>
+
+      <div class="text-center">
+      <%= link_to 'Return to articles listing', articles_path, class: "card-title-color" %>
+      </div>
+    </div>
+  </div>
+</div>
