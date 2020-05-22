@@ -11,9 +11,12 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <%= render 'layouts/flash_messages' %>
-    <%= yield %>
-  </body>
+    <div class="page-content">
+      <%= render 'layouts/flash_messages' %>
+      <%= yield %>
+    </div>
 
     <%= render 'layouts/footer' %>
+  </body>
+
 </html>
