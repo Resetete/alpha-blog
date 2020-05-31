@@ -1,6 +1,6 @@
   <div class="jumbotron jumbotron-fluid" id="jumbotron-image">
     <div class="container">
-      <h1 class="display-4">Delta Blog</h1>
+      <h1 class="display-4 jumbotron-blog-name">Delta Blog</h1>
       <p class="page-description"> This is a collection of interesting articles </p>
       <%= link_to "Sign up!", signup_path, class: "btn btn-custom-edit btn-lg mb-3" %>
     </div>
@@ -10,7 +10,7 @@
     <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
   </div>
 
-  <div class="container-fluid">
+  <div class="container-fluid mt-4">
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link active" href="#">All</a>
@@ -26,9 +26,11 @@
 
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-3 card-deck">
-      <div class="col mb-4">
+      <div class="col mb-4 mt-1">
         <div class="card h-100">
-          <%= image_tag("imagetest.jpg", alt: "article1-image", class: "card-img-top") %>
+          <div class="card-header text-white">
+            by username
+          </div>
           <div class="card-body">
             <h5 class="card-title">Article title</h5>
             <p class="card-text">Description.</p>
@@ -38,9 +40,11 @@
           </div>
         </div>
       </div>
-      <div class="col mb-4">
+      <div class="col mb-4 mt-1">
         <div class="card h-100">
-          <%= image_tag("imagetest.jpg", alt: "article1-image", class: "card-img-top") %>
+          <div class="card-header text-white">
+            by username
+          </div>
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a short card.</p>
@@ -50,9 +54,11 @@
           </div>
         </div>
       </div>
-      <div class="col mb-4">
+      <div class="col mb-4 mt-1">
         <div class="card h-100">
-          <%= image_tag("imagetest.jpg", alt: "article1-image", class: "card-img-top") %>
+          <div class="card-header text-white">
+            by username
+          </div>
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
