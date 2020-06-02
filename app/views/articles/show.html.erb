@@ -6,13 +6,14 @@
       <div class="card text-center shadow mb-5 bg-white rounded">
         <div class="card-header text-white">
           by <%= @article.user.username %>
+          <%= link_to gravatar_for(@article.user, size: 60), user_path(@article.user) %>
         </div>
         <div class="card-body">
-        <div class="card-text text-left"> <%= simple_format(@article.description) %> </div>
-          <%= link_to "Edit", edit_article_path(@article), class: "btn btn-custom-edit" %>
-          <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-custom-delete" %>
-          <%= link_to 'Return to articles listing', articles_path, class: "btn btn-custom-show" %>
-        </div>
+          <div class="card-text text-left"> <%= simple_format(@article.description) %> </div>
+            <%= link_to "Edit", edit_article_path(@article), class: "btn btn-custom-edit" %>
+            <%= link_to "Delete", article_path(@article), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-custom-delete" %>
+            <%= link_to 'Return to articles listing', articles_path, class: "btn btn-custom-show" %>
+          </div>
         <div class="card-footer text-white">
           <small> <%= time_ago_in_words(@article.created_at) %> ago,
           edited <%= time_ago_in_words(@article.updated_at) %> ago </small>
