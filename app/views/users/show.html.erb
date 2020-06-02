@@ -8,4 +8,12 @@
 
 <h3 class="text-center mt-4"> Articles </h3>
 
+<div class="flickr_pagination mt-3">
+    <%= will_paginate @user_articles, container: false %>
+</div>
+
 <%= render 'articles/article', obj: @user_articles %>
+
+<div class="flickr_pagination mb-3">
+    <%= will_paginate @user_articles, container: false %>
+</div>
