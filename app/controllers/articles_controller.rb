@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
   def create
     # create new instance variable from Article based on the params information; params need to have the top level key :article and from it we allow the attributes :title, :description to be stored
     @article = Article.new(article_params)
-    @article.user = User.find(3)
+    @article.user = current_user
     if @article.save
       flash[:notice] = 'Article successful saved'
       redirect_to @article # rails extracts the id from this instance variable
