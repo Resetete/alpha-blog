@@ -35,7 +35,7 @@
       <% if logged_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Profile of <%= current_user.username.capitalize %>
+            <%= "(Admin)" if current_user.admin? %> Profile of <%= current_user.username.capitalize %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if logged_in? %>
