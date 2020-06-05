@@ -28,6 +28,15 @@ h1 {
   color: $highlight-color-dark;
 }
 
+h2 {
+  color: $highlight-color-light;
+}
+
+h2:hover {
+  background-color: $deep-green;
+  color: $background-color;
+}
+
 .jumbotron-blog-name {
   font-size: 4em;
 }
