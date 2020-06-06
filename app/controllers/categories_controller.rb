@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+    @category.name = @category.name.capitalize
     if @category.save
       flash[:notice] = "Category was successfully created."
       redirect_to @category
@@ -14,11 +15,12 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-    @category = Category.find(params[:id])
+  def index
+    @categories = Category.paginate(page: params[:page], per_page: 5)
   end
 
-  def index
+  def show
+    @category = Category.find(params[:id])
   end
 
   private
