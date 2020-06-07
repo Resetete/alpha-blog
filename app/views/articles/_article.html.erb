@@ -21,6 +21,9 @@
                 <%= link_to "Edit", edit_article_path(article), class: "btn btn-custom-edit" %>
                 <%= link_to "Delete", article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-custom-delete" %>
               <% end %>
+              <div class="mt-3">
+                <%= pluralize(article.likes.count, 'like') %>
+              </div>
             </div>
             <div class="card-footer text-white">
               <small> <%= time_ago_in_words(article.created_at) %> ago,
