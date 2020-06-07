@@ -3,4 +3,9 @@ class Category < ApplicationRecord
   has_many :articles, through: :article_categories
   validates :name, presence: true, length: { minimum: 3, maximum: 25 }
   validates_uniqueness_of :name, case_sensitive: false
+  before_save :capitalize_name
+
+  def capitalize_name
+    self.name = self.name.capitalize
+  end
 end

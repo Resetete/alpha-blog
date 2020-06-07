@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4"> Create a category </h1>
+<h1 class="text-center mt-4">  <%= @category.name %> </h1>
 
 <div class="container"
   <div class="row justify-content-center">
@@ -8,7 +8,7 @@
     </div>
 
     <div class="text-center mb-3">
-      <%= link_to 'Cancel and return to categories listing', categories_path, class: "card-title-color" %>
+      <%= link_to 'Cancel and return to category', category_path(@category), class: "card-title-color" %>
     </div>
   </div>
 </div>
