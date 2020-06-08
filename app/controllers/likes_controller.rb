@@ -3,7 +3,7 @@ class LikesController < ApplicationController
   before_action :find_like, only: [:destroy]
 
   def create
-    @article.likes.create(article_id: params[:article_id])
+    @article.likes.create(params[:id])
     redirect_to article_path(@article)
   end
 
@@ -23,7 +23,7 @@ class LikesController < ApplicationController
   end
 
   def find_like
-    @like = @article.likes.find(params[:id])
+    @like = @article.likes.last
   end
 
   def already_liked?
