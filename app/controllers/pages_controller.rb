@@ -1,18 +1,14 @@
 class PagesController < ApplicationController
   def home
-    @article = Article.all
-    most_liked
+    @all_articles = Article.all
+    @sorted_liked_articles = LikesPair.all.sort_by do |pair|
+      [pair.likes_count, pair.article_id]
+    end.reverse!.first(9)
+    @most_liked_articles = @sorted_liked_articles.map do |article|
+      Article.find(article.article_id)
+    end
   end
 
   def about
-  end
-
-  private
-
-  def most_liked
-    @most_liked  = Like.order('articles.likes DESC').limit(9) # gets the articles with highest count of likes
-  end
-
-  def show_latest
   end
 end
