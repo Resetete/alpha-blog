@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-md-3 card-deck">
+    <% obj.each do |article| %>
+      <div class="col mb-4 mt-1">
+        <div class="card h-100">
+          <div class="card-header text-white">
+              by <%= link_to article.user.username.capitalize , user_path(article.user) %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"> <%= article.title %> </h5>
+            <p class="card-text"> <%= simple_format(truncate(article.description, length: 200)) %> </p>
+          </div>
+          <div>
+            <p class="text-center badge badge-primary ml-3">
+              <%= pluralize(article.likes.count, 'like') %>
+              <%= link_to "View", article_path(article), class: "btn btn-custom-show ml-2" %>
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-white"> created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago </small>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

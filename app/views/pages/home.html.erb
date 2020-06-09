@@ -1,51 +1,25 @@
-  <div class="jumbotron jumbotron-fluid" id="jumbotron-image">
-    <div class="container">
-      <h1 class="display-4 jumbotron-blog-name">Delta Blog</h1>
-      <p class="page-description"> This is a collection of interesting articles </p>
-      <%= link_to "Sign up!", signup_path, class: "btn btn-custom-edit btn-lg mb-3" %>
-    </div>
+<div class="jumbotron jumbotron-fluid" id="jumbotron-image">
+  <div class="container">
+    <h1 class="display-4 jumbotron-blog-name">Delta Blog</h1>
+    <p class="page-description"> This is a collection of interesting articles </p>
+    <%= link_to "Sign up!", signup_path, class: "btn btn-custom-edit btn-lg mb-3" %>
   </div>
+</div>
 
-  <div class="container-fluid" id="image-ref">
-    <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
-  </div>
+<div class="container-fluid" id="image-ref">
+  <a href="https://www.freepik.com/free-photos-vectors/background">Background vector created by freepik - www.freepik.com</a>
+</div>
 
-  <div class="container-fluid mt-4">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Most-liked</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Latest</a>
-      </li>
-    </ul>
-  </div>
+<div class="container-fluid mt-4">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Most-liked</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Latest</a>
+    </li>
+  </ul>
+</div>
 
 
-  <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-3 card-deck">
-      <% @most_liked_articles.each do |article| %>
-        <div class="col mb-4 mt-1">
-          <div class="card h-100">
-            <div class="card-header text-white">
-                by <%= link_to article.user.username, user_path(article.user) %>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"> <%= article.title %> </h5>
-              <p class="card-text"> <%= simple_format(truncate(article.description, length: 200)) %> </p>
-            </div>
-            <div>
-              <p class="text-center badge badge-primary ml-3">
-                <%= pluralize(article.likes.count, 'like') %>
-                <%= link_to "View", article_path(article), class: "btn btn-custom-show ml-2" %>
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-white"> created <%= time_ago_in_words(article.created_at) %> ago, edited <%= time_ago_in_words(article.updated_at) %> ago </small>
-
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+<%= render 'article', obj: @most_liked_articles %>
