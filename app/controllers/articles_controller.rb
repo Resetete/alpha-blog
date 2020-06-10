@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
     @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
+  def search
+    @articles = Article.where("title LIKE ? OR description LIKE ?", "%" + params[:query] + "%", "%" + params[:query] + "%")
+  end
+
   def new
     # this is needed to have an empty article variable when the new page is loaded the first time
     @article = Article.new
@@ -43,21 +47,21 @@ class ArticlesController < ApplicationController
     @article.destroy
     redirect_to articles_path
   end
-end
 
-private
+  private
 
-def set_article
-  @article = Article.find(params[:id])
-end
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-def article_params
-  params.require(:article).permit(:title, :description, category_ids: [] )
-end
+  def article_params
+    params.require(:article).permit(:title, :description, category_ids: [])
+  end
 
-def require_same_user
-  if current_user != @article.user && !current_user.admin?
-    flash[:alert] = "You can only edit or delete your own article"
-    redirect_to @article
+  def require_same_user
+    if current_user != @article.user && !current_user.admin?
+      flash[:alert] = "You can only edit or delete your own article"
+      redirect_to @article
+    end
   end
 end

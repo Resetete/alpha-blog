@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :likes
   end
 
+  get 'search', to: 'articles#search'
+
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
 
