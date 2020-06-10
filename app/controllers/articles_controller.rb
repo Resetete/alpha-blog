@@ -12,7 +12,8 @@ class ArticlesController < ApplicationController
 
   def search
     q = "%#{params[:query]}%"
-    @articles = Article.where("title LIKE ? OR description LIKE ?", q, q)
+    filtered_articles = Article.where("title LIKE ? OR description LIKE ?", q, q)
+    @articles =  filtered_articles.paginate(page: params[:page], per_page: 5)
   end
 
   def new
